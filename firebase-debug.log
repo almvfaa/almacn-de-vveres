@@ -1,0 +1,8 @@
+[warn] ⚠  JSON error trying to load /home/user/almacn-de-vveres/.firebaserc 
+[warn] ⚠  JSON error trying to load /home/user/almacn-de-vveres/.firebaserc 
+[warn] ⚠  JSON error trying to load /home/user/almacn-de-vveres/.firebaserc 
+[warn] ⚠  JSON error trying to load /home/user/almacn-de-vveres/.firebaserc 
+[warn] ⚠  JSON error trying to load /home/user/almacn-de-vveres/.firebaserc 
+[warn] ⚠  JSON error trying to load /home/user/almacn-de-vveres/.firebaserc 
+[debug] [2025-07-23T02:15:14.626Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-23T02:15:14.627Z] > authorizing via signed-in user (caaalmvf@gmail.com)
