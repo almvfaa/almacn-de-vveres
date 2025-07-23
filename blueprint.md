@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a simple web application that demonstrates modern web development techniques.
+This project is a simple web application that demonstrates modern web development techniques and Firebase integration.
 
 ## Project Details
 
@@ -15,13 +15,16 @@ This project is a simple web application that demonstrates modern web developmen
 
 ## Current Request
 
-The user wants to change the button text to "INICIAR" and give it an innovative and dynamic style.
+The user wants to restructure the project to align with Firebase Hosting best practices, including moving all static assets into a `public/` folder, generating initial Firebase SDK configuration, and setting up basic HTML and CSS boilerplate.
 
 ### Plan
-1.  **Modify `index.html`:**
-    *   Change the button text from "Press me" to "INICIAR".
-    *   Add a class `dynamic-button` to the button for styling.
-2.  **Modify `style.css`:**
-    *   Add styles for the `.dynamic-button` class.
-    *   Implement a modern and dynamic look using CSS variables, transitions, shadows, and a glow effect.
-    *   Add hover and active states to make the button interactive.
+1.  **Create `public/` directory and subdirectories:** Create `public/css`, `public/js`, and `public/images`.
+2.  **Move `index.html`:** Move `index.html` to `public/index.html`.
+3.  **Move and Update `style.css`:** Move `style.css` to `public/css/style.css` and update its link in `public/index.html`.
+4.  **Move and Update `main.js`:** Move `main.js` to `public/js/main.js` and update its link in `public/index.html`.
+5.  **Create `firebase-config.js`:** Create an empty `firebase-config.js` file in `public/js/`.
+6.  **Create `firebase.json`:** Create or update `firebase.json` to configure Firebase Hosting to serve content from the `public/` directory.
+7.  **Create `.firebaserc`:** Create an empty `.firebaserc` file.
+8.  **Create `firestore.rules`:** Create an empty `firestore.rules` file.
+9.  **Create `firestore.indexes.json`:** Create an empty `firestore.indexes.json` file.
+10. **Create `storage.rules`:** Create an empty `storage.rules` file.
