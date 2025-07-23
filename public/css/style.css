@@ -58,36 +58,11 @@ body {
     padding: 15px;
     background-color: #fcfcfc;
     overflow: auto;
+    position: relative; /* For absolute positioning of nodes */
 }
 
 #timeline-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-.nodes-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.concept-node {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.edges-container {
-    border-top: 1px solid var(--border-color);
-    padding-top: 15px;
-}
-
-.concept-edge {
-    font-style: italic;
-    color: #7f8c8d;
 }

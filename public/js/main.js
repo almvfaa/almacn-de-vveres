@@ -1,5 +1,7 @@
 import './components/app-landing.js';
 import './components/timeline-event.js';
+import './components/concept-node.js';
+import './components/concept-edge-display.js';
 import { fetchProblemData } from './utils.js';
 import { renderTimeline } from './renderers/timeline-renderer.js';
 import { renderConceptMap } from './renderers/concept-map-renderer.js';
