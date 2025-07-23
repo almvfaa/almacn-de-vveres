@@ -1,16 +1,14 @@
-import { db } from '../firebase-config';
-import { collection, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
-
-export async function renderTimeline(problemId: string, containerId: string): Promise<void> {
+import { db } from '../firebase-config.js';
+import { collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+export async function renderTimeline(problemId, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container with id ${containerId} not found.`);
         return;
     }
-
     container.innerHTML = 'Cargando línea del tiempo...';
-    
     try {
+        // Start with the static "CONTEXTO" card
         let html = `
             <div class="timeline-event context-event">
                 <div class="event-content">
@@ -19,15 +17,17 @@ export async function renderTimeline(problemId: string, containerId: string): Pr
                 </div>
             </div>
         `;
-
         const eventsCollectionRef = collection(db, `problems/${problemId}/timeline_events`);
-        const q = query(eventsCollectionRef, orderBy('date', 'asc'));
+        const q = query(eventsCollection.ref, orderBy('date', 'asc'));
         const querySnapshot = await getDocs(q);
-
+        if (querySnapshot.empty) {
+            // Even if there are no events, we still show the Context card.
+            // We could add a message here if needed.
+        }
         querySnapshot.forEach((doc) => {
             const event = doc.data();
-            const date = event.date instanceof Timestamp 
-                ? event.date.toDate().toLocaleDateString() 
+            const date = event.date && event.date.seconds
+                ? new Date(event.date.seconds * 1000).toLocaleDateString()
                 : 'Fecha Desconocida';
             html += `
                 <div class="timeline-event">
@@ -40,8 +40,10 @@ export async function renderTimeline(problemId: string, containerId: string): Pr
             `;
         });
         container.innerHTML = html;
-    } catch (error) {
+    }
+    catch (error) {
         console.error("Error rendering timeline:", error);
         container.innerHTML = '<p>Error al cargar la línea del tiempo.</p>';
     }
 }
+//# sourceMappingURL=timeline-renderer.js.map
