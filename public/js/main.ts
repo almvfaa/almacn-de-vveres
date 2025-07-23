@@ -13,8 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (landingPage && mainAppContent) {
         landingPage.addEventListener('start-app', async () => {
-            landingPage.style.display = 'none';
-            mainAppContent.style.display = 'flex';
+            landingPage.classList.add('fade-out');
+
+            // Wait for the fade-out animation to complete
+            setTimeout(() => {
+                landingPage.style.display = 'none';
+                mainAppContent.style.display = 'flex';
+                // Delay the fade-in slightly to ensure the display property has changed
+                setTimeout(() => {
+                    mainAppContent.classList.add('fade-in');
+                }, 50);
+            }, 500); // Must match the --animation-speed in CSS
 
             const problemTitle = document.getElementById('problem-title');
             const problemDescription = document.getElementById('problem-description');
