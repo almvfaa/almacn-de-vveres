@@ -1,4 +1,4 @@
-import { db } from './firebase-config';
+import { db } from './firebase-exports.js';
 import { doc, getDoc } from 'firebase/firestore';
 export async function fetchProblemData(problemId) {
     try {

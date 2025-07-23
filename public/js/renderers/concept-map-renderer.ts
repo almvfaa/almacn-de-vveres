@@ -1,6 +1,6 @@
-import { db } from '../firebase-config.js';
+import { db } from '../firebase-exports.js';
 import { doc, getDoc } from 'firebase/firestore';
-import { Network, DataSet, Options, Node, Edge } from 'vis-network/standalone/esm/vis-network.min.js';
+import { Network, DataSet, Options, Node, Edge } from 'https://unpkg.com/vis-network@9.1.9/dist/vis-network.esm.min.js?module';
 
 export async function renderConceptMap(problemId: string, containerId: string): Promise<void> {
     const container = document.getElementById(containerId);
@@ -13,8 +13,8 @@ export async function renderConceptMap(problemId: string, containerId: string): 
 
     const networkCanvas = document.createElement('div');
     networkCanvas.style.width = '100%';
-    networkCanvas.style.height = '500px'; // Set a fixed height for the canvas
-    container.innerHTML = ''; // Clear the loading message
+    networkCanvas.style.height = '500px';
+    container.innerHTML = '';
     container.appendChild(networkCanvas);
 
     try {

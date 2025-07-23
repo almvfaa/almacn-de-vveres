@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (problemTitle && problemDescription) {
                 try {
-                    const problemData = await fetchProblemData('problem1'); // Using a fixed problem ID for now
+                    const problemData = await fetchProblemData('problem1');
                     
                     if (problemData) {
                         problemTitle.textContent = problemData.title || 'Título del Problema';

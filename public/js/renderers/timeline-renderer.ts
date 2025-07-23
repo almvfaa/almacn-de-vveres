@@ -1,4 +1,4 @@
-import { db } from '../firebase-config.js';
+import { db } from '../firebase-exports.js';
 import { collection, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
 import { html, render } from 'lit';
 import '../components/timeline-event.js';

@@ -1,8 +1,9 @@
-import { initializeApp, FirebaseApp } from "firebase/app";
-import { getAuth, Auth } from "firebase/auth";
-import { getFirestore, Firestore } from "firebase/firestore";
-import { getStorage, FirebaseStorage } from "firebase/storage";
-import { getAnalytics, Analytics } from "firebase/analytics";
+// public/js/firebase-exports.ts
+import { initializeApp, FirebaseApp } from 'firebase/app';
+import { getAuth, Auth } from 'firebase/auth';
+import { getFirestore, Firestore } from 'firebase/firestore';
+import { getStorage, FirebaseStorage } from 'firebase/storage';
+import { getAnalytics, Analytics } from 'firebase/analytics';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,11 +16,10 @@ const firebaseConfig = {
   measurementId: "G-J881HHYKXM"
 };
 
-// Initialize Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
+const analytics: Analytics = getAnalytics(app);
 
-// Export the services you need
 export const db: Firestore = getFirestore(app);
 export const auth: Auth = getAuth(app);
 export const storage: FirebaseStorage = getStorage(app);
-export const analytics: Analytics = getAnalytics(app);
+export { app, analytics };

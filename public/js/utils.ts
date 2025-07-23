@@ -1,4 +1,4 @@
-import { db } from './firebase-config';
+import { db } from './firebase-exports.js';
 import { doc, getDoc, DocumentData } from 'firebase/firestore';
 
 export async function fetchProblemData(problemId: string): Promise<DocumentData | null> {

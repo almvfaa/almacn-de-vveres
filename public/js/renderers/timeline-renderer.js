@@ -1,6 +1,6 @@
-import { db } from '../firebase-config.js';
+import { db } from '../firebase-exports.js';
 import { collection, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
-import { html, render } from 'lit';
+import { html, render } from 'https://unpkg.com/lit@3.1.0/index.js?module';
 import '../components/timeline-event.js';
 export async function renderTimeline(problemId, containerId) {
     const container = document.getElementById(containerId);
