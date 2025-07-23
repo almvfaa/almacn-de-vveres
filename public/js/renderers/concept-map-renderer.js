@@ -1,5 +1,5 @@
-import { db } from '../firebase-config.js';
-import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { db } from '../firebase-config';
+import { doc, getDoc } from 'firebase/firestore';
 export async function renderConceptMap(problemId, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -18,7 +18,6 @@ export async function renderConceptMap(problemId, containerId) {
             return;
         }
         let nodesHtml = nodes.map(node => `<div class="concept-node" id="node-${node.id}">${node.text}</div>`).join('');
-        // Create a lookup for node text
         const nodeLut = nodes.reduce((acc, curr) => {
             acc[curr.id] = curr.text;
             return acc;

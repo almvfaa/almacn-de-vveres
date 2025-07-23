@@ -1,14 +1,15 @@
+import './components/app-landing.js';
 import { fetchProblemData } from './utils.js';
 import { renderTimeline } from './renderers/timeline-renderer.js';
 import { renderConceptMap } from './renderers/concept-map-renderer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const landingPage = document.getElementById('landing-page');
-    const mainAppContent = document.getElementById('main-app-content');
-    const comenzarButton = document.getElementById('comenzarButton');
-    
-    if (comenzarButton && landingPage && mainAppContent) {
-        comenzarButton.addEventListener('click', async () => {
+    const appContainer = document.getElementById('app-container');
+    const landingPage = appContainer?.querySelector('app-landing') as HTMLElement;
+    const mainAppContent = document.getElementById('main-app-content') as HTMLElement;
+
+    if (landingPage && mainAppContent) {
+        landingPage.addEventListener('start-app', async () => {
             landingPage.style.display = 'none';
             mainAppContent.style.display = 'flex';
 
@@ -23,10 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         problemTitle.textContent = problemData.title || 'Título del Problema';
                         problemDescription.textContent = problemData.description || 'Descripción del problema.';
                         
-                        // Render the timeline
                         renderTimeline('problem1', 'timeline-container');
-    
-                        // Render the concept map
                         renderConceptMap('problem1', 'concept-map-container');
                         
                     } else {
