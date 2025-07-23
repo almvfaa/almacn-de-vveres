@@ -1,19 +1,16 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyC-YuabrveJSbZM9Tssk6PgsVG81EYTNYI",
   authDomain: "almacen-de-viveres---cgj.firebaseapp.com",
   projectId: "almacen-de-viveres---cgj",
-  storageBucket: "almacen-de-viveres---cgj.appspot.com",
+  storageBucket: "almacen-de-viveres---cgj.firebasestorage.app",
   messagingSenderId: "792262146984",
   appId: "1:792262146984:web:8a46db38ddf694c5487b9d",
   measurementId: "G-J881HHYKXM"
@@ -21,10 +18,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 // Export the services you need
-export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const auth = getAuth(app);
 export const storage = getStorage(app);
-export { app, analytics };
+export const analytics = getAnalytics(app);
