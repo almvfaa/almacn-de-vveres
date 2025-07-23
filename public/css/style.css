@@ -55,3 +55,66 @@ h1, h2, h3, p {
     background-color: #fcfcfc;
     overflow: auto;
 }
+
+#timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timeline-event {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.event-date {
+    font-weight: bold;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.event-title {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.event-description {
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.nodes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.concept-node {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.edges-container {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.concept-edge {
+    font-style: italic;
+    color: #7f8c8d;
+}

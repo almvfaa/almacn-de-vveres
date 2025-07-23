@@ -1,4 +1,6 @@
 import { fetchProblemData } from './utils.js';
+import { renderTimeline } from './renderers/timeline-renderer.js';
+import { renderConceptMap } from './renderers/concept-map-renderer.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const problemTitle = document.getElementById('problem-title');
@@ -10,6 +12,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (problemData) {
             problemTitle.textContent = problemData.title || 'Título del Problema';
             problemDescription.textContent = problemData.description || 'Descripción del problema.';
+            
+            // Render the timeline
+            renderTimeline('problem1', 'timeline-container');
+
+            // Render the concept map
+            renderConceptMap('problem1', 'concept-map-container');
+            
         } else {
             problemTitle.textContent = 'Problema no encontrado';
             problemDescription.textContent = 'No se pudieron cargar los detalles del problema.';
@@ -19,6 +28,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         problemTitle.textContent = 'Error de Carga';
         problemDescription.textContent = 'Ocurrió un error al intentar cargar el contenido del problema.';
     }
-    
-    // Future calls to render timeline and concept map will go here
 });
