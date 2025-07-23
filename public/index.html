@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Aplicación Frontend</title>
+  <title>Explorador de Problemas Interactivos</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div id="app-container">
-    <div id="auth-ui">
-      <!-- Auth UI will be dynamically added here -->
-    </div>
-    <section id="problem-display">
-        <h2 id="problem-title"></h2>
-        <p id="problem-description"></p>
-    
-        <section id="timeline-section">
-            <h3>Línea del Tiempo</h3>
-            <div id="timeline-container"></div>
-        </section>
-    
-        <section id="concept-map-section">
-            <h3>Mapa Conceptual</h3>
-            <div id="concept-map-container"></div>
-        </section>
+    <section id="landing-page">
+      <h1>Explorador de Problemas Interactivos</h1>
+      <p>Descubre y analiza problemas complejos a través de líneas de tiempo y mapas conceptuales.</p>
+      <button id="comenzarButton">Comenzar</button>
+    </section>
+
+    <section id="main-app-content" style="display: none;">
+      <div id="auth-ui" style="display: none;"></div>
+      <section id="problem-display">
+          <h2 id="problem-title"></h2>
+          <p id="problem-description"></p>
+          <section id="timeline-section">
+              <h3>Línea del Tiempo</h3>
+              <div id="timeline-container"></div>
+          </section>
+          <section id="concept-map-section">
+              <h3>Mapa Conceptual</h3>
+              <div id="concept-map-container"></div>
+          </section>
+      </section>
     </section>
   </div>
   <script type="module" src="/js/main.js"></script>

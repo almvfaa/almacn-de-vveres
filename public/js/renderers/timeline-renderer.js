@@ -11,16 +11,25 @@ export async function renderTimeline(problemId, containerId) {
     container.innerHTML = 'Cargando línea del tiempo...';
     
     try {
+        // Start with the static "CONTEXTO" card
+        let html = `
+            <div class="timeline-event context-event">
+                <div class="event-content">
+                    <h4 class="event-title">CONTEXTO</h4>
+                    <p class="event-description">Aquí se presentará el contexto general del problema.</p>
+                </div>
+            </div>
+        `;
+
         const eventsCollectionRef = collection(db, `problems/${problemId}/timeline_events`);
-        const q = query(eventsCollectionRef, orderBy('date', 'asc'));
+        const q = query(eventsCollection.ref, orderBy('date', 'asc'));
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
-            container.innerHTML = '<p>No hay eventos en la línea del tiempo.</p>';
-            return;
+            // Even if there are no events, we still show the Context card.
+            // We could add a message here if needed.
         }
 
-        let html = '';
         querySnapshot.forEach((doc) => {
             const event = doc.data();
             const date = event.date && event.date.seconds 

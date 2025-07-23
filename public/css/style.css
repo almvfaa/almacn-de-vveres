@@ -8,32 +8,64 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background: linear-gradient(135deg, #e0f7fa, #bbdefb);
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
 }
 
 #app-container {
-    background-color: var(--panel-bg);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     max-width: 900px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 95%;
+    height: 90vh; /* Permite que la landing page ocupe casi toda la pantalla */
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    overflow: hidden; /* Para que el contenido no se salga al cambiar */
 }
 
-h1, h2, h3, p {
-    margin: 0;
+#landing-page {
+    flex: 1; /* Ocupa todo el espacio vertical disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Empuja el botón hacia abajo */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#comenzarButton {
+    padding: 15px 40px;
+    border-radius: 30px;
+    background-color: #3f51b5;
+    color: white;
+    font-size: 1.3em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    margin-top: auto; /* Empuja el botón al final de su contenedor flex */
+}
+
+#comenzarButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+#main-app-content {
+    flex: 1;
+    display: none; /* Inicialmente oculto */
+    padding: 20px;
+    overflow-y: auto; /* Para permitir scroll si el contenido es largo */
+    max-width: 100%;
+    box-shadow: none;
 }
 
 #problem-display {
