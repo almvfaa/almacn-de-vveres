@@ -1,6 +1,6 @@
 import { db } from '../firebase-config.js';
 import { doc, getDoc } from 'firebase/firestore';
-import { Network, DataSet } from 'vis-network';
+import { Network, DataSet } from 'vis-network/standalone/esm/vis-network.min.js';
 export async function renderConceptMap(problemId, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
