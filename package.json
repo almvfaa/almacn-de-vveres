@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && ./copy-deps.sh"
   },
   "devDependencies": {
     "lit": "^3.3.1",

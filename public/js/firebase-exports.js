@@ -1,9 +1,9 @@
 // public/js/firebase-exports.ts
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js';
-import { getStorage } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-storage.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+import { getAnalytics } from 'firebase/analytics';
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyC-YuabrveJSbZM9Tssk6PgsVG81EYTNYI",
