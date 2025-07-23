@@ -8,8 +8,23 @@
 </head>
 <body>
   <div id="app-container">
-    <h1>Hello, world!</h1>
-    <button id="startButton">INICIAR</button>
+    <div id="auth-ui">
+      <!-- Auth UI will be dynamically added here -->
+    </div>
+    <section id="problem-display">
+        <h2 id="problem-title"></h2>
+        <p id="problem-description"></p>
+    
+        <section id="timeline-section">
+            <h3>Línea del Tiempo</h3>
+            <div id="timeline-container"></div>
+        </section>
+    
+        <section id="concept-map-section">
+            <h3>Mapa Conceptual</h3>
+            <div id="concept-map-container"></div>
+        </section>
+    </section>
   </div>
   <script type="module" src="/js/main.js"></script>
 </body>
