@@ -1,5 +1,7 @@
-import { db } from '../firebase-config';
+import { db } from '../firebase-config.js';
 import { collection, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
+import { html, render } from 'lit';
+import '../components/timeline-event.js';
 export async function renderTimeline(problemId, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -8,33 +10,22 @@ export async function renderTimeline(problemId, containerId) {
     }
     container.innerHTML = 'Cargando línea del tiempo...';
     try {
-        let html = `
-            <div class="timeline-event context-event">
-                <div class="event-content">
-                    <h4 class="event-title">CONTEXTO</h4>
-                    <p class="event-description">Aquí se presentará el contexto general del problema.</p>
-                </div>
-            </div>
-        `;
         const eventsCollectionRef = collection(db, `problems/${problemId}/timeline_events`);
         const q = query(eventsCollectionRef, orderBy('date', 'asc'));
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
+        const eventTemplates = querySnapshot.docs.map(doc => {
             const event = doc.data();
             const date = event.date instanceof Timestamp
                 ? event.date.toDate().toLocaleDateString()
                 : 'Fecha Desconocida';
-            html += `
-                <div class="timeline-event">
-                    <div class="event-date">${date}</div>
-                    <div class="event-content">
-                        <h4 class="event-title">${event.title || ''}</h4>
-                        <p class="event-description">${event.description || ''}</p>
-                    </div>
-                </div>
-            `;
+            return html `<timeline-event .date="${date}" .title="${event.title || ''}" .description="${event.description || ''}"></timeline-event>`;
         });
-        container.innerHTML = html;
+        const staticCard = html `
+            <timeline-event 
+                .title="${"CONTEXTO"}" 
+                .description="${"Aquí se presentará el contexto general del problema."}"
+            ></timeline-event>`;
+        render([staticCard, ...eventTemplates], container);
     }
     catch (error) {
         console.error("Error rendering timeline:", error);
